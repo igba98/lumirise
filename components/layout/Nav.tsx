@@ -39,7 +39,7 @@ export function Nav() {
       )}
     >
       <div className="container-x flex items-center justify-between">
-        <Logo tone="light" />
+        <Logo dark={!scrolled} />
 
         <nav className="hidden items-center gap-9 lg:flex">
           {navLinks.map((link) => {
@@ -72,7 +72,12 @@ export function Nav() {
           <a
             href={`tel:${site.phonePrimary.replace(/\s/g, "")}`}
             aria-label="Call Lumirise"
-            className="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white transition-colors hover:bg-white hover:text-navy"
+            className={cn(
+              "grid h-11 w-11 place-items-center rounded-full border transition-colors",
+              scrolled
+                ? "border-white/25 text-white hover:bg-white hover:text-navy"
+                : "border-navy/25 text-navy hover:bg-navy hover:text-white",
+            )}
           >
             <Phone className="h-4 w-4" />
           </a>
@@ -83,7 +88,12 @@ export function Nav() {
           type="button"
           aria-label="Open menu"
           onClick={() => setOpen(true)}
-          className="grid h-11 w-11 place-items-center rounded-full border border-white/25 text-white lg:hidden"
+          className={cn(
+            "grid h-11 w-11 place-items-center rounded-full border transition-colors lg:hidden",
+            scrolled
+              ? "border-white/25 text-white"
+              : "border-navy/25 text-navy",
+          )}
         >
           <Menu className="h-5 w-5" />
         </button>
