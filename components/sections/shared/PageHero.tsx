@@ -27,11 +27,11 @@ export function PageHero({
           fill
           priority
           sizes="100vw"
-          className="-z-10 object-cover"
+          className="absolute inset-0 z-0 object-cover"
         />
-        <div className="absolute inset-0 -z-10 bg-linear-to-t from-navy/90 via-navy/45 to-navy/25" />
+        <div className="absolute inset-0 z-0 bg-linear-to-t from-navy/90 via-navy/45 to-navy/25" />
 
-        <Reveal className="max-w-3xl">
+        <Reveal className="relative z-10 max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-white backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-gold" />
             {eyebrow}

@@ -1,30 +1,32 @@
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 export function Logo({
-  tone = "light",
   className,
+  size = "md",
 }: {
-  /** "light" = white wordmark (over navy), "dark" = navy wordmark. */
+  /** Retained for API compatibility; the supplied wordmark is white. */
   tone?: "light" | "dark";
   className?: string;
+  size?: "sm" | "md";
 }) {
+  const h = size === "sm" ? 26 : 32;
   return (
     <Link
       href="/"
       aria-label="Lumirise — home"
-      className={cn(
-        "group inline-flex items-center gap-2.5 text-xl font-extrabold tracking-tight",
-        tone === "light" ? "text-white" : "text-navy",
-        className,
-      )}
+      className={cn("inline-flex items-center", className)}
     >
-      <span className="grid h-8 w-8 place-items-center rounded-lg bg-gold text-navy transition-transform duration-300 group-hover:rotate-12">
-        <span className="text-sm leading-none">◆</span>
-      </span>
-      <span>
-        LUMI<span className="text-gold">RISE</span>
-      </span>
+      <Image
+        src="/logos/logo-white.png"
+        alt="Lumirise"
+        width={760}
+        height={222}
+        priority
+        className="w-auto"
+        style={{ height: h }}
+      />
     </Link>
   );
 }

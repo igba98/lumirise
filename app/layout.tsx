@@ -5,7 +5,6 @@ import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { MobileBar } from "@/components/layout/MobileBar";
 import { Cursor } from "@/components/layout/Cursor";
-import { SmoothScroll } from "@/components/layout/SmoothScroll";
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -43,7 +42,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${urbanist.variable} h-full`}>
       <body className="min-h-full bg-cream pb-13 text-ink lg:pb-0">
-        <SmoothScroll />
         <Cursor />
         <Nav />
         <main>{children}</main>

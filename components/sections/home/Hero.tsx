@@ -39,7 +39,7 @@ export function Hero() {
     <section className="bg-cream px-3 pt-24 sm:px-5 sm:pt-28">
       <div className="relative mx-auto min-h-[640px] max-w-[1400px] overflow-hidden rounded-[2rem] lg:min-h-[86vh]">
         {/* Image + parallax */}
-        <div ref={imgRef} className="absolute inset-0 -z-10 scale-110">
+        <div ref={imgRef} className="absolute inset-0 z-0 scale-110">
           <Image
             src={images.hero}
             alt="Cargo containers at the Port of Dar es Salaam at sunrise"
@@ -49,9 +49,9 @@ export function Hero() {
             className="object-cover"
           />
         </div>
-        <div className="absolute inset-0 -z-10 bg-linear-to-t from-navy/85 via-navy/30 to-navy/15" />
+        <div className="absolute inset-0 z-0 bg-linear-to-t from-navy/85 via-navy/30 to-navy/15" />
 
-        <div className="flex min-h-[640px] flex-col justify-end p-7 sm:p-12 lg:min-h-[86vh] lg:p-16">
+        <div className="relative z-10 flex min-h-[640px] flex-col justify-end p-7 sm:p-12 lg:min-h-[86vh] lg:p-16">
           <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
             <div className="max-w-2xl">
               <motion.span
