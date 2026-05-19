@@ -22,15 +22,25 @@ export function Marquee({
     const el = trackRef.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let tween: gsap.core.Tween;
     const ctx = gsap.context(() => {
-      gsap.to(el, {
+      tween = gsap.to(el, {
         xPercent: -50,
         repeat: -1,
         ease: "none",
         duration: speed,
       });
     });
-    return () => ctx.revert();
+    // Don't burn CPU animating a strip nobody can see.
+    const io = new IntersectionObserver(
+      ([entry]) => (entry.isIntersecting ? tween?.play() : tween?.pause()),
+      { threshold: 0 },
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      ctx.revert();
+    };
   }, [speed]);
 
   const group = (

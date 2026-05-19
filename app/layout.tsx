@@ -41,7 +41,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${urbanist.variable} h-full`}>
-      <body className="min-h-full bg-cream pb-13 text-ink lg:pb-0">
+      {/* Browser extensions (Bitdefender, form-fillers, etc.) inject
+          attributes like `bis_register` / `__processed_*` onto <body>
+          before hydration. Scope-limited: suppresses only <body>'s own
+          attribute mismatch, children still hydrate/validate normally. */}
+      <body
+        className="min-h-full bg-cream pb-13 text-ink lg:pb-0"
+        suppressHydrationWarning
+      >
         <Cursor />
         <Nav />
         <main>{children}</main>

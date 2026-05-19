@@ -2,13 +2,13 @@
 
 @theme {
   /* Brand palette (spec §2) */
-  --color-navy: #0a2540;
-  --color-navy-700: #0d2e4f;
-  --color-navy-600: #143a63;
-  --color-royal: #1e4daf;
-  --color-gold: #d4a437;
-  --color-gold-bright: #e3b94f;
-  --color-champagne: #f4e5b8;
+  --color-navy: #11305f;
+  --color-navy-700: #163a73;
+  --color-navy-600: #1d4889;
+  --color-royal: #2a5bc0;
+  --color-gold: #c59540;
+  --color-gold-bright: #d8aa57;
+  --color-champagne: #f1e3bf;
   --color-cream: #fafaf7;
   --color-ink: #111827;
   --color-muted: #5b6472;

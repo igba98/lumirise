@@ -52,8 +52,11 @@ export function Nav() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative text-sm font-medium text-white/80 transition-colors hover:text-white",
-                  active && "text-white",
+                  "relative text-sm font-medium transition-colors",
+                  scrolled
+                    ? "text-white/80 hover:text-white"
+                    : "text-navy/80 hover:text-navy",
+                  active && (scrolled ? "text-white" : "text-navy"),
                 )}
               >
                 {link.label}
